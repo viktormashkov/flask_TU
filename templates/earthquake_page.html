@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>Information about earthquakes</h1>
+<div class="chart" id="bargraph">
+    <script>
+        var graphs = {{ graph | safe }};
+        var config = {responsive: true};
+        Plotly.newPlot('bargraph', graphs.data, graphs.layout, config );
+    </script>
+</div>
+{% endblock %}
